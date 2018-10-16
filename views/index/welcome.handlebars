@@ -1,0 +1,12 @@
+<h1>Welcome!</h1>
+<p>Welcome to the Project Status reporting Tool.</p>
+
+
+{{#if user}}
+	<a href="/report/add" class="white-text"><div class="waves-effect waves-light btn">Add a new report</div></a>
+{{else}}
+	<p>Please authorise yourself to be able to add a new report.</p>
+	<a href="/auth/google" class="btn red darken-1"><div><i class="fab fa-google left"></i> Login with Google</div></a>
+{{/if}}
+
+<p>Have a wonderful day!</p>

@@ -1,0 +1,30 @@
+<footer class="page-footer grey darken-3">
+	<div class="container">
+		<div class="row">
+			<div class="col l6 s12">
+				<h5 class="white-text">Project status reporting tool</h5>
+				<p class="grey-text text-lighten-4">Share your status and track the history.</p>
+			</div>
+	{{#if user}}
+			<div class="col l4 offset-l2 s12">
+				<h5 class="white-text">Links</h5>
+				<ul>
+					<li><a class="grey-text text-lighten-3" href="/reports">All reports</a></li>
+				</ul>
+			</div>
+		</div>
+	{{/if}}
+	</div>
+	<div class="footer-copyright">
+		<div class="container grey-text text-darken-2">
+			© 2018 Copyright Myroslav Kravchenko
+		</div>
+	</div>
+	{{#if user}}
+		<div class="fixed-action-btn">
+			<a class="btn-floating btn-large red" href="/report/add">
+				<i class="fas fa-plus"></i>
+			</a>
+		</div>
+	{{/if}}
+</footer>

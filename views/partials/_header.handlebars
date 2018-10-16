@@ -1,0 +1,16 @@
+<nav class="grey darken-3">
+	<div class="container">
+		<div class="nav-wrapper">
+			<a href="/" class="brand-logo left">Project Status Reporting Tool</a>
+			<ul class="right hide-on-small-only">
+				{{#if user}}
+					<li><a href="/reports">Welcome {{user.firstName}}</a></li>
+					<li><a href="/report/add">Add a new report</a></li>
+					<li><a href="/auth/logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+				{{else}}
+					<li><a href="/auth/google" class="red lighten-1"><i class="fab fa-google left danger"></i> Login</a></li>
+				{{/if}}
+			</ul>
+		</div>
+	</div>
+</nav>
