@@ -1,0 +1,142 @@
+<h1>Add new report</h1>
+<div class="row">
+	<form action="/report" method="post" class="col s12">
+
+		<div class="row">
+			<div class="input-field">
+				<select id="projectName" name="projectName">
+					{{#each projects}}
+					<option value="{{id}}">{{projectName}}</option>
+					{{/each}}
+				</select>
+				<label for="projectName">Project name</label>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="input-field">
+				<label for="news">Describe the latest news, please!</label>
+				<textarea type="text" name="news" class="materialize-textarea" required></textarea>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="input-field">
+				<label for="plans">Describe upcoming plans, please!</label>
+				<textarea type="text" name="plans" class="materialize-textarea" required></textarea>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="input-field">
+				<label for="milestones">List agreed milestones and dates, please!</label>
+				<textarea type="text" name="milestones" class="materialize-textarea" required></textarea>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="input-field">
+				<select id="customerRelationshipRAG" name="customerRelationshipRAG">
+					<option value="green" selected>Green</option>
+					<option value="amber">Amber</option>
+					<option value="red">Red</option>
+				</select>
+				<label for="customerRelationshipRAG">Status of relationships with the customer</label>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="input-field">
+				<label for="customerRelationshipComment">Please add comments to relationship with the customer</label>
+				<textarea type="text" name="customerRelationshipComment" class="materialize-textarea"></textarea>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="input-field">
+				<select name="teamMoraleRAG" required>
+					<option value="green" selected>Green</option>
+					<option value="amber">Amber</option>
+					<option value="red">Red</option>
+				</select>
+				<label for="title">Status of morale in the team</label>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="input-field">
+				<label for="teamMoraleComment">Please add comments to the team morale</label>
+				<textarea type="text" name="teamMoraleComment" class="materialize-textarea"></textarea>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="input-field">
+				<select name="prodStabilityRAG" required>
+					<option value="green" selected>Green</option>
+					<option value="amber">Amber</option>
+					<option value="red">Red</option>
+				</select>
+				<label for="title">Status of the production stability</label>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="input-field">
+				<label for="prodStabilityComment">Please add comments regarding Prod stability</label>
+				<textarea type="text" name="prodStabilityComment" class="materialize-textarea"></textarea>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="input-field">
+				<input type="number" name="grossMargin">
+				<label for="grossMargin">Gross margin in percentage</label>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="input-field">
+				<input type="number" name="revenue">
+				<label for="revenue">Gross margin in percentage</label>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="input-field">
+				<select name="risksIssuesRAG" required>
+					<option value="green" selected>Green</option>
+					<option value="amber">Amber</option>
+					<option value="red">Red</option>
+				</select>
+				<label for="title">Status of the risks / issues</label>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="input-field">
+				<label for="risksIssuesComment">Please add comments regarding risks / issues</label>
+				<textarea type="text" name="risksIssuesComment" class="materialize-textarea"></textarea>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="input-field">
+				<select name="managementSupportFlag" required>
+					<option value="false" selected>No</option>
+					<option value="true">Yes!</option>
+				</select>
+				<label for="title">Do you need a support from Management?</label>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="input-field">
+				<label for="managementSupportComment">Please add comments regarding the stuff that needs support from Management</label>
+				<textarea type="text" name="managementSupportComment" class="materialize-textarea"></textarea>
+			</div>
+		</div>
+
+		<input type="submit" value="Save" class="btn">
+	</form>
+</div>

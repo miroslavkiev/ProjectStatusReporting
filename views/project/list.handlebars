@@ -1,0 +1,32 @@
+<h1>Welcome {{user.firstName}}</h1>
+<h4>List of all available projects!</h4>
+{{#if projects}}
+	<table style='margin-bottom: 30px' class="highlight">
+		<thead>
+		<tr>
+			<th>Project name</th>
+			<th>Creation date</th>
+			<th>Created by</th>
+			<th>Action</th>
+		</tr>
+		</thead>
+		<tbody>
+		{{#each projects}}
+			<tr>
+				<td>{{projectName}}</td>
+				<td>{{formatDate date 'MMM do YYYY'}}</td>
+				<td><span class="dash-status">{{user.firstName}} {{user.lastName}}</span></td>
+				<td class="valign-wrapper">
+					<a class="btn left-align valign"	href="/project/edit/{{id}}"><i class="fas fa-pencil-alt"></i></a>
+					<form action="/project/{{id}}?_method=DELETE" method="post" id="delete-form" class="valign">
+						<input type="hidden" name="_method" value="DELETE">
+						<button type="submit" class="btn red"><i class="far fa-trash-alt"></i></button>
+					</form>
+				</td>
+			</tr>
+		{{/each}}
+		</tbody>
+	</table>
+{{else}}
+	<p>You have not created any projects yet.</p>
+{{/if}}

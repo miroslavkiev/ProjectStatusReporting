@@ -13,7 +13,8 @@ const {truncate, stripTags, formatDate, select, editIcon} = require('./helpers/h
 
 //Load models
 require('./models/User');
-//require('./models/Story');
+require('./models/Projects');
+require('./models/Report');
 
 //Passport config
 require('./config/passport')(passport);
@@ -21,7 +22,8 @@ require('./config/passport')(passport);
 //Load routes
 const auth = require('./routes/auth');
 const index = require('./routes/index');
-// const stories = require('./routes/stories');
+const report = require('./routes/report');
+const project = require('./routes/project');
 
 //Load keys
 const keys = require('./config/keys');
@@ -84,7 +86,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 //Use routes
 app.use('/auth', auth);
 app.use('/', index);
-//app.use('/stories', stories);
+app.use('/report', report);
+app.use('/project', project);
 
 const port = process.env.PORT || 3000;
 

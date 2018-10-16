@@ -1,0 +1,15 @@
+<h1>Edit a project</h1>
+<div class="row">
+	<form action="/project/{{project.id}}?_method=PUT" method="post" class="col s12">
+		<input type="hidden" name="_method" value="PUT">
+
+		<div class="row">
+			<div class="input-field">
+				<input type="text" name="projectName" value="{{project.projectName}}">
+				<label for="projectName">Project Name</label>
+			</div>
+		</div>
+
+		<input type="submit" value="Save" class="btn">
+	</form>
+</div>
