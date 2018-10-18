@@ -9,6 +9,28 @@
 			</div>
 		</div>
 
+		<div class="row">
+			<div class="input-field">
+				<select id="pm" name="pm">
+					{{#each pm}}
+						<option value="{{id}}">{{lastName}} {{firstName}}</option>
+					{{/each}}
+				</select>
+				<label for="pm">Project Manager</label>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="input-field">
+				<select id="spm" name="spm">
+					{{#each spm}}
+						<option value="{{id}}">{{lastName}} {{firstName}}</option>
+					{{/each}}
+				</select>
+				<label for="spm">Senior Project Manager</label>
+			</div>
+		</div>
+
 		<input type="submit" value="Save" class="btn">
 	</form>
 </div>

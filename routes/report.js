@@ -16,10 +16,19 @@ router.get('/add', (req, res) => {
 
 router.post('/', ensureAuthenticated, (req, res) => {
 	//map fields
+	let spm = '';
+
+	Project.findOne({projectName: req.body.projectName})
+		.then(project => {spm = project.spm});
+
 	const newReport = {
 		projectName: req.body.projectName,
-		news: req.body.news,
+		overallStatusRAG: req.body.overallStatusRAG,
+		overallStatusComment: req.body.overallStatusComment,
 		plans: req.body.plans,
+		startDate: req.body.startDate,
+		SOWEndDate: req.body.SOWEndDate,
+		SOWExtensionProbability: req.body.SOWExtensionProbability,
 		milestones: req.body.milestones,
 		customerRelationshipRAG: req.body.customerRelationshipRAG,
 		customerRelationshipComment: req.body.customerRelationshipComment,
@@ -31,9 +40,12 @@ router.post('/', ensureAuthenticated, (req, res) => {
 		revenue: req.body.revenue,
 		risksIssuesRAG: req.body.risksIssuesRAG,
 		risksIssuesComment: req.body.risksIssuesComment,
+		staffingRAG: req.body.staffingRAG,
+		staffingComments: req.body.staffingComments,
 		managementSupportFlag: req.body.managementSupportFlag,
 		managementSupportComment: req.body.managementSupportComment,
-		user: req.user.id
+		pm: req.user.id,
+		spm: spm
 	}
 
 	//Create report

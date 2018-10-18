@@ -8,13 +8,28 @@ const ReportSchema = new Schema({
 		ref:'projects',
 		required: true
 	},
-	news: {
+	overallStatusRAG: {
+		type: String,
+		enum: ['red', 'amber', 'green'],
+		required: true
+	},
+	overallStatusComment: {
 		type: String,
 		required: true
 	},
 	plans: {
 		type: String,
 		required: true
+	},
+	startDate: {
+		type: Date,
+		required: true
+	},
+	SOWEndDate: {
+		type: Date
+	},
+	SOWExtensionProbability: {
+		type: Number
 	},
 	milestones: {
 		type: String,
@@ -60,6 +75,14 @@ const ReportSchema = new Schema({
 	risksIssuesComments: {
 		type: String
 	},
+	staffingRAG: {
+		type: String,
+		enum: ['red', 'amber', 'green'],
+		required: true
+	},
+	staffingComments: {
+		type: String
+	},
 	managementSupportFlag: {
 		type: Boolean,
 		required: true
@@ -67,11 +90,19 @@ const ReportSchema = new Schema({
 	managementSupportComment: {
 		type: String
 	},
-	user:{
+	pm:{
 		type: Schema.Types.ObjectId,
 		ref:'users'
 	},
-	date:{
+	spm:{
+		type: Schema.Types.ObjectId,
+		ref:'users'
+	},
+	createdDate:{
+		type: Date,
+		default: Date.now
+	},
+	modifiedDate:{
 		type: Date,
 		default: Date.now
 	}

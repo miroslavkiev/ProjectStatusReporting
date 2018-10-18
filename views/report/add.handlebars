@@ -1,40 +1,87 @@
 <h1>Add new report</h1>
 <div class="row">
-	<form action="/report" method="post" class="col s12">
+	<form action="/report" method="post">
 
-		<div class="row">
+		<div class="row col s12 m6 l3">
 			<div class="input-field">
 				<select id="projectName" name="projectName">
 					{{#each projects}}
-					<option value="{{id}}">{{projectName}}</option>
+						<option value="{{id}}">{{projectName}}</option>
 					{{/each}}
 				</select>
 				<label for="projectName">Project name</label>
 			</div>
 		</div>
 
-		<div class="row">
+		<div class="row col s12 m6 l2 offset-l1">
 			<div class="input-field">
-				<label for="news">Describe the latest news, please!</label>
-				<textarea type="text" name="news" class="materialize-textarea" required></textarea>
+				<label for="startDate">Project start date</label>
+				<input type="date" name="startDate" class="datepicker" required>
 			</div>
 		</div>
 
-		<div class="row">
+		<div class="row col s12 m6 l2 offset-l1">
+			<div class="input-field">
+				<label for="SOWEndDate">SOW end date</label>
+				<input type="date" name="SOWEndDate" class="datepicker">
+			</div>
+		</div>
+
+		<div class="row col s12 m6 l2 offset-l1">
+			<div class="input-field">
+				<input type="number" name="SOWExtensionProbability">
+				<label for="SOWExtensionProbability">Probability of SOW extension</label>
+			</div>
+		</div>
+
+		<div class="row col s12 m6 l3">
+			<p>What is the overall status of the project?</p>
+			<div class="rag-container">
+				<input type="radio" name="overallStatusRAG" value="red"/>
+				<label class="card-cc circle-red" for="red"></label>
+				<input type="radio" name="overallStatusRAG" value="yellow"/>
+				<label class="card-cc circle-yellow" for="yellow"></label>
+				<input type="radio" name="overallStatusRAG" value="green"/>
+				<label class="card-cc circle-green" for="green"></label>
+			</div>
+		</div>
+
+		<div class="row col s12 m6 l8 offset-l1">
+			<div class="input-field">
+				<label for="overallStatusComment">Describe the overall status, news and highlights!</label>
+				<textarea type="text" name="overallStatusComment" class="materialize-textarea" required></textarea>
+			</div>
+		</div>
+
+		<div class="row col s12 m6 l2">
+			<div class="input-field">
+				<input type="number" name="grossMargin">
+				<label for="grossMargin">Gross margin in percentage</label>
+			</div>
+		</div>
+
+		<div class="row col s12 m6 l2">
+			<div class="input-field">
+				<input type="number" name="revenue">
+				<label for="revenue">Gross margin in percentage</label>
+			</div>
+		</div>
+
+		<div class="row col s12 m6 l4">
 			<div class="input-field">
 				<label for="plans">Describe upcoming plans, please!</label>
 				<textarea type="text" name="plans" class="materialize-textarea" required></textarea>
 			</div>
 		</div>
 
-		<div class="row">
+		<div class="row col s12 m6 l4">
 			<div class="input-field">
 				<label for="milestones">List agreed milestones and dates, please!</label>
 				<textarea type="text" name="milestones" class="materialize-textarea" required></textarea>
 			</div>
 		</div>
 
-		<div class="row">
+		<div class="row col s12 m6 l3">
 			<div class="input-field">
 				<select id="customerRelationshipRAG" name="customerRelationshipRAG">
 					<option value="green" selected>Green</option>
@@ -45,14 +92,14 @@
 			</div>
 		</div>
 
-		<div class="row">
+		<div class="row col s12 m6 l9">
 			<div class="input-field">
 				<label for="customerRelationshipComment">Please add comments to relationship with the customer</label>
 				<textarea type="text" name="customerRelationshipComment" class="materialize-textarea"></textarea>
 			</div>
 		</div>
 
-		<div class="row">
+		<div class="row col s12 m6 l3">
 			<div class="input-field">
 				<select name="teamMoraleRAG" required>
 					<option value="green" selected>Green</option>
@@ -63,14 +110,14 @@
 			</div>
 		</div>
 
-		<div class="row">
+		<div class="row col s12 m6 l9">
 			<div class="input-field">
 				<label for="teamMoraleComment">Please add comments to the team morale</label>
 				<textarea type="text" name="teamMoraleComment" class="materialize-textarea"></textarea>
 			</div>
 		</div>
 
-		<div class="row">
+		<div class="row col s12 m6 l3">
 			<div class="input-field">
 				<select name="prodStabilityRAG" required>
 					<option value="green" selected>Green</option>
@@ -81,46 +128,51 @@
 			</div>
 		</div>
 
-		<div class="row">
+		<div class="row col s12 m6 l9">
 			<div class="input-field">
 				<label for="prodStabilityComment">Please add comments regarding Prod stability</label>
 				<textarea type="text" name="prodStabilityComment" class="materialize-textarea"></textarea>
 			</div>
 		</div>
 
-		<div class="row">
-			<div class="input-field">
-				<input type="number" name="grossMargin">
-				<label for="grossMargin">Gross margin in percentage</label>
-			</div>
-		</div>
-
-		<div class="row">
-			<div class="input-field">
-				<input type="number" name="revenue">
-				<label for="revenue">Gross margin in percentage</label>
-			</div>
-		</div>
-
-		<div class="row">
+		<div class="row col s12 m6 l3">
 			<div class="input-field">
 				<select name="risksIssuesRAG" required>
 					<option value="green" selected>Green</option>
 					<option value="amber">Amber</option>
 					<option value="red">Red</option>
 				</select>
-				<label for="title">Status of the risks / issues</label>
+				<label for="risksIssuesRAG">Status of the risks / issues</label>
 			</div>
 		</div>
 
-		<div class="row">
+		<div class="row col s12 m6 l9">
 			<div class="input-field">
 				<label for="risksIssuesComment">Please add comments regarding risks / issues</label>
 				<textarea type="text" name="risksIssuesComment" class="materialize-textarea"></textarea>
 			</div>
 		</div>
 
-		<div class="row">
+		<div class="row col s12 m6 l3">
+			<div class="input-field">
+				<select name="staffingRAG" required>
+					<option value="green" selected>Green</option>
+					<option value="amber">Amber</option>
+					<option value="red">Red</option>
+				</select>
+				<label for="staffingRAG">Status of the risks / issues</label>
+			</div>
+		</div>
+
+		<div class="row col s12 m6 l9">
+			<div class="input-field">
+				<label for="staffingComments">Please add comments regarding risks / issues</label>
+				<textarea type="text" name="staffingComments" class="materialize-textarea"></textarea>
+			</div>
+		</div>
+
+
+		<div class="row col s12 m6 l3">
 			<div class="input-field">
 				<select name="managementSupportFlag" required>
 					<option value="false" selected>No</option>
@@ -130,13 +182,14 @@
 			</div>
 		</div>
 
-		<div class="row">
+		<div class="row col s12 m6 l9">
 			<div class="input-field">
-				<label for="managementSupportComment">Please add comments regarding the stuff that needs support from Management</label>
+				<label for="managementSupportComment">Please add comments regarding the stuff that needs support from
+					Management</label>
 				<textarea type="text" name="managementSupportComment" class="materialize-textarea"></textarea>
 			</div>
 		</div>
 
-		<input type="submit" value="Save" class="btn">
+		<input type="submit" value="Save" class="btn right">
 	</form>
 </div>

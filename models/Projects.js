@@ -7,11 +7,48 @@ const ProjectsSchema = new Schema({
 		type: String,
 		required: true
 	},
+	description: {
+		type: String
+	},
 	user:{
 		type: Schema.Types.ObjectId,
 		ref:'users'
 	},
-	date:{
+	pm:{
+		type: Schema.Types.ObjectId,
+		ref:'users',
+		required: true
+	},
+	spm:{
+		type: Schema.Types.ObjectId,
+		ref:'users',
+		required: true
+	},
+	status:{
+		type: Boolean,
+		required: true,
+		default: true
+	},
+	mCiklumPMinvolved:{
+		type: Boolean,
+		required: true,
+		default: true
+	},
+	CiklumBAinvolved:{
+		type: Boolean,
+		required: true,
+		default: true
+	},
+	CiklumArchinvolved:{
+		type: Boolean,
+		required: true,
+		default: true
+	},
+	createdDate:{
+		type: Date,
+		default: Date.now
+	},
+	modifiedDate:{
 		type: Date,
 		default: Date.now
 	}
