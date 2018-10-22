@@ -1,7 +1,8 @@
 <h1>Add new report</h1>
 <div class="row">
-	<form action="/report" method="post">
+	< action="/report" method="post">
 
+	<div>
 		<div class="row col s12 m6 l3">
 			<div class="input-field">
 				<select id="projectName" name="projectName">
@@ -12,27 +13,40 @@
 				<label for="projectName">Project name</label>
 			</div>
 		</div>
+</div>
 
-		<div class="row col s12 m6 l2 offset-l1">
-			<div class="input-field">
-				<label for="startDate">Project start date</label>
-				<input type="date" name="startDate" class="datepicker" required>
+
+		<div class="section ragBlock">
+			{{> _rag labelMessage='Overall status' name='overallStatusRAG'}}
+			{{> _rag labelMessage='Milestones status' name='milestonesRAG'}}
+			{{> _rag labelMessage='Customer relations' name='customerRelationshipRAG'}}
+			{{> _rag labelMessage='Team morale' name='teamMoraleRAG'}}
+			{{> _rag labelMessage='PROD stability' name='prodStabilityRAG'}}
+			{{> _rag labelMessage='Risks & issues' name='risksIssuesRAG'}}
+			{{> _rag labelMessage='Staffing status' name='staffingRAG'}}
+			{{> _flag labelMessage='Management help' name='managementSupportFlag'}}
+
+			<!--Margin SOW block-->
+			<div class="radioBlock">
+					<div class="input-field">
+						<label for="SOWEndDate">SOW end date</label>
+						<input type="date" name="SOWEndDate" class="datepicker">
+					</div>
+
+					<div class="input-field">
+						<input type="number" name="grossMargin">
+						<label for="grossMargin">Gross margin, %</label>
+					</div>
+
+					<div class="input-field">
+						<input type="number" name="revenue">
+						<label for="revenue">Revenue, K USD</label>
+					</div>
 			</div>
+
 		</div>
 
-		<div class="row col s12 m6 l2 offset-l1">
-			<div class="input-field">
-				<label for="SOWEndDate">SOW end date</label>
-				<input type="date" name="SOWEndDate" class="datepicker">
-			</div>
-		</div>
 
-		<div class="row col s12 m6 l2 offset-l1">
-			<div class="input-field">
-				<input type="number" name="SOWExtensionProbability">
-				<label for="SOWExtensionProbability">Probability of SOW extension</label>
-			</div>
-		</div>
 
 		<div class="row col s12 m6 l3">
 			<p>What is the overall status of the project?</p>
@@ -53,19 +67,6 @@
 			</div>
 		</div>
 
-		<div class="row col s12 m6 l2">
-			<div class="input-field">
-				<input type="number" name="grossMargin">
-				<label for="grossMargin">Gross margin in percentage</label>
-			</div>
-		</div>
-
-		<div class="row col s12 m6 l2">
-			<div class="input-field">
-				<input type="number" name="revenue">
-				<label for="revenue">Gross margin in percentage</label>
-			</div>
-		</div>
 
 		<div class="row col s12 m6 l4">
 			<div class="input-field">
